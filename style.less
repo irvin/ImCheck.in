@@ -1,0 +1,60 @@
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: hsla(193, 80%, 70%, 90%);
+    z-index: 10;
+    padding: 10px;
+    height: 35px;
+    h1 {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        right: 30px;
+        top: 10px;
+    }
+}
+
+#map {
+    position: relative;
+    header {
+        position: fixed;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        background: hsla(0, 0%, 100%, 0.85);
+        z-index: 5;
+    }
+    #standardPos {
+        section {
+            table {
+                position: absolute;
+                background: hsla(0, 0%, 100%, 0.85);
+                td {
+                    border: 1px solid grey;
+                    text-align: center;
+                    &:hover {
+                        font-size: 1.5em;
+                        cursor: pointer;
+                        border: 3px solid;
+                        border-color: #BBB #999 #999 #BBB;
+                        background: silver;
+                    }
+                    &:active {
+                        background: grey;
+                        border-color: #666 #999 #999 #666;
+                    }
+                    &.mine {
+                        background-color: GreenYellow;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#invisible { display: none; }
+button#imhere {
+    font-size: 2em;
+}
