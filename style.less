@@ -6,13 +6,22 @@ aside {
     background-color: hsla(193, 80%, 70%, 90%);
     z-index: 10;
     padding: 10px;
-    height: 35px;
+    * {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    #at {
+        font-size: 16px;
+    }
+    button#checkOut {
+        height: 30px;
+    }
     h1 {
         margin: 0;
         padding: 0;
-        position: absolute;
-        right: 30px;
-        top: 10px;
+        position: fixed;
+        right: 15px;
+        top: 15px;
     }
 }
 
@@ -34,12 +43,15 @@ aside {
                 td {
                     border: 1px solid grey;
                     text-align: center;
+                    word-wrap:break-word;
+                    overflow: hidden;
                     &:hover {
                         font-size: 1.5em;
                         cursor: pointer;
                         border: 3px solid;
                         border-color: #BBB #999 #999 #BBB;
                         background: silver;
+                        width: 100px;
                     }
                     &:active {
                         background: grey;
@@ -55,6 +67,3 @@ aside {
 }
 
 #invisible { display: none; }
-button#imhere {
-    font-size: 2em;
-}

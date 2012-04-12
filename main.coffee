@@ -1,55 +1,64 @@
-$ ->
+jQuery ($) ->
     # create seated
-    $('section').each(()->
+    hallName = $('body').data('hall')
     
-        tsection = $(this)
-        trow = tsection.data('row')
-        tcol = tsection.data('col')
-        tleft = tsection.data('left')
-        ttop = tsection.data('top')
-        theight = tsection.data('height')
-        twidth = tsection.data('width')
+    $('section').each ()->
+        tSection = $(this)
+        tRow = tSection.data('row')
+        tCol = tSection.data('col')
+        tLeft = tSection.data('left')
+        tTop = tSection.data('top')
+        tHeight = tSection.data('height')
+        tWidth = tSection.data('width')
+        tdHeight = tHeight / tRow
         
         row = ""
-        for i in [0...trow]
-            row += "<tr>"
-            row += "<td class='empty'>　　</td>" for j in [0...tcol]
+        for i in [0...tRow]
+            row += "<tr style='height:" + tdHeight + "px'>"
+            row += "<td class='empty'></td>" for j in [0...tCol]
             row += "</tr>"
     
-        $("<table class='seated'>").css({
-            left: tleft,
-            top: ttop,
-            height: theight,
-            width: twidth
-        }).append(row).appendTo(tsection);
-    )
+        $("<table class='seated'>")
+            .css({
+                left: tLeft + 'px',
+                top: tTop + 'px',
+                height: tHeight + 'px',
+                width: tWidth + 'px'
+            })
+            .append(row).appendTo(tSection);
     
-    # get button
     
+    # checkin button
     $('#standardPos').find('td')
-        .hover ()-> 
+        .hover(
+            ()->
                 $(this).data('tmptext', $(this).text())
                 $(this).text("I'm here")
-            ,
             ()-> 
                 $(this).text($(this).data('tmptext'))
                 $(this).data('tmptext', '')
+        ) 
         .click ()->
             nickinput = $('input#nick')    
             if nickinput.val() is ""
-                alert('input your nickname first, please.')
+                alert('Please tell me your nickname')
                 nickinput.focus()
             else
-                if (confirm('Are you sitting here?'))
-                    $('.mine').removeClass('mine').addClass('empty').text('')
+                if (confirm('Are you sit here?'))
+                    $('#standardPos .mine').removeClass('mine').addClass('empty').text('')
                     $(this).removeClass('empty').addClass('mine')
                         .text(nickinput.val())
                         .data('tmptext', nickinput.val())
                     # ajax checkin
 
-    
-#    btnHere = $('#invisible button')
-#    $('#standardPos').find('td').hover(()->
-#        btnHere.appendTo(this)
-#    )
-#    return
+    # checkout buttin
+    $('button#checkOut').text(hallName)
+        .hover(
+            ()->
+                $(this).text('Checkout & Switch')
+            () ->
+                $(this).text(hallName)
+        )
+        .click ()->
+            $('#standardPos .mine').removeClass('mine').addClass('empty').text('')
+            # show switcher

@@ -6,14 +6,23 @@ aside {
   background-color: rgba(117, 213, 240, 0.9);
   z-index: 10;
   padding: 10px;
-  height: 35px;
+}
+aside * {
+  font-size: 20px;
+  line-height: 20px;
+}
+aside #at {
+  font-size: 16px;
+}
+aside button#checkOut {
+  height: 30px;
 }
 aside h1 {
   margin: 0;
   padding: 0;
-  position: absolute;
-  right: 30px;
-  top: 10px;
+  position: fixed;
+  right: 15px;
+  top: 15px;
 }
 #map {
   position: relative;
@@ -33,6 +42,8 @@ aside h1 {
 #map #standardPos section table td {
   border: 1px solid grey;
   text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 #map #standardPos section table td:hover {
   font-size: 1.5em;
@@ -40,6 +51,7 @@ aside h1 {
   border: 3px solid;
   border-color: #BBB #999 #999 #BBB;
   background: silver;
+  width: 100px;
 }
 #map #standardPos section table td:active {
   background: grey;
@@ -50,7 +62,4 @@ aside h1 {
 }
 #invisible {
   display: none;
-}
-button#imhere {
-  font-size: 2em;
 }
